@@ -13,4 +13,17 @@ def get_user_info(users_data:list)->None:
         print(f"Twój znajomy {user['name']} z miejscowości {user['location']} opublikował {user['posts']} postów")
 
 
+
  get_user_info(users)
+
+
+ from utils.model import users
+ from utils.controller import get_user_info
+
+
+ def main():
+     get_user_info(users)
+
+
+ if __name__=="__main__":
+     main()

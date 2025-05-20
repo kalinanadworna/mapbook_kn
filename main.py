@@ -66,16 +66,16 @@ def show_user_details():
     label_surname_szczegoly_obiektow_wartosc.config(text=user_surname)
     label_location_szczegoly_obiektow_wartosc.config(text=user_location)
     label_posts_szczegoly_obiektow_wartosc.config(text=user_posts)
-    map_widget.set_position(users[i].coordinates, users[i].coordinates[1])
+    map_widget.set_position(users[i].coordinates[0], users[i].coordinates[1])
     map_widget.set_zoom(14)
 
 
 def edit_user():
     i = listbox_lista_obiektow.index(ACTIVE)
-    user_name = users[i]["name"]
+    user_name = users[i].name
     user_surname = users[i].surname
-    user_location = users[i]["location"]
-    user_posts = users[i]["post"]
+    user_location = users[i].location
+    user_posts = users[i].posts
     entry_name.insert(0, user_name)
     entry_surname.insert(0, user_surname)
     entry_location.insert(0, user_location)
@@ -122,7 +122,7 @@ ramka_szczegoly_obiektow.grid(row=1, column=0, columnspan=2)
 ramka_mapa.grid(row=2, column=0, columnspan=2)
 
 # ramka_lista_obiektow
-label_lista_obiektow = Label(ramka_lista_obiektow, text="Lista obiektow")
+label_lista_obiektow = Label(ramka_lista_obiektow, text="Lista obiektów")
 label_lista_obiektow.grid(row=0, column=0, columnspan=3)
 listbox_lista_obiektow = Listbox(ramka_lista_obiektow, width=60, height=15)
 listbox_lista_obiektow.grid(row=1, column=0, columnspan=3)
@@ -154,7 +154,7 @@ entry_location.grid(row=3, column=1)
 entry_posts = Entry(ramka_formularz)
 entry_posts.grid(row=4, column=1)
 
-button_dodaj_obiekt = Button(ramka_formularz, text="Dodaj użutkownika", command=add_user)
+button_dodaj_obiekt = Button(ramka_formularz, text="Dodaj użytkownika", command=add_user)
 button_dodaj_obiekt.grid(row=5, column=0, columnspan=2)
 
 # ramka_szczegoly_obiektu
